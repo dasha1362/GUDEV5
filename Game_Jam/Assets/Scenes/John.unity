@@ -357,54 +357,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29aeeacb9586d9545a49690182604b02, type: 3}
---- !u!1 &427812686
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 427812688}
-  - component: {fileID: 427812687}
-  m_Layer: 0
-  m_Name: Recipes
-  m_TagString: GameController
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &427812687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 427812686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b99703ca7b35febc925fd961a45a908, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  p1Fruit: 0
-  p2Fruit: 0
-  p1Recipe: 
-  p2Recipe: 
-  recipeLength: 10
---- !u!4 &427812688
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 427812686}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.14894974, y: -1.5943211, z: 1.3514938}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &552653059
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,6 +948,75 @@ PrefabInstance:
       objectReference: {fileID: 1280551682}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acccb1a783b5ac87ebf15ac07a756161, type: 3}
+--- !u!1001 &3074812291348965229
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3074812291496263715, guid: 4458ea39db4390b04b548a7d0fac05e1,
+        type: 3}
+      propertyPath: m_Name
+      value: Recipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 3074812291496263741, guid: 4458ea39db4390b04b548a7d0fac05e1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.14894974
+      objectReference: {fileID: 0}
+    - target: {fileID: 3074812291496263741, guid: 4458ea39db4390b04b548a7d0fac05e1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5943211
+      objectReference: {fileID: 0}
+    - target: {fileID: 3074812291496263741, guid: 4458ea39db4390b04b548a7d0fac05e1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.3514938
+      objectReference: {fileID: 0}
+    - target: {fileID: 3074812291496263741, guid: 4458ea39db4390b04b548a7d0fac05e1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3074812291496263741, guid: 4458ea39db4390b04b548a7d0fac05e1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3074812291496263741, guid: 4458ea39db4390b04b548a7d0fac05e1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3074812291496263741, guid: 4458ea39db4390b04b548a7d0fac05e1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3074812291496263741, guid: 4458ea39db4390b04b548a7d0fac05e1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3074812291496263741, guid: 4458ea39db4390b04b548a7d0fac05e1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3074812291496263741, guid: 4458ea39db4390b04b548a7d0fac05e1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3074812291496263741, guid: 4458ea39db4390b04b548a7d0fac05e1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4458ea39db4390b04b548a7d0fac05e1, type: 3}
 --- !u!1001 &8942226658188384924
 PrefabInstance:
   m_ObjectHideFlags: 0
