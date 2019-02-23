@@ -10,11 +10,12 @@ public class GrabChecker : MonoBehaviour
 	public bool isReleased;
 	public Buff buffType;
 	internal int LastPlayerNumber { get; set; }
+	Animator anim;
 
 	// Start is called before the first frame update
     void Start()
     {
-
+    	anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -22,7 +23,8 @@ public class GrabChecker : MonoBehaviour
     {
     	if (isGrabbed)
     	{
-        	transform.position = new Vector3(holdingPlayer.transform.position.x, holdingPlayer.transform.position.y + 0.8f, holdingPlayer.transform.position.z);	
+        	transform.position = new Vector3(holdingPlayer.transform.position.x, holdingPlayer.transform.position.y + 0.8f, holdingPlayer.transform.position.z);
+        	anim.SetBool("basket", true);
     	}
     	if (isReleased)
     	{
@@ -31,6 +33,7 @@ public class GrabChecker : MonoBehaviour
     		holdingPlayer = null;
     		isGrabbed = false;
     		isReleased = false;
+        	anim.SetBool("basket", false);
     	}
     }
 }

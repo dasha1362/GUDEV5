@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 123681976948663074}
   - component: {fileID: 123681976948663075}
   - component: {fileID: 123681976948663077}
+  - component: {fileID: 47678695765905021}
   m_Layer: 0
   m_Name: Blueberries
   m_TagString: Ingredient
@@ -95,3 +96,23 @@ MonoBehaviour:
   holdingPlayer: {fileID: 0}
   isGrabbed: 0
   isReleased: 0
+  buffType: 0
+--- !u!95 &47678695765905021
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123681976948663072}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 49efec1efb80cc32cba2cbbfad8be35c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
