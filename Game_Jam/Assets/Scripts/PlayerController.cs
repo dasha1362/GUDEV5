@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
 	Rigidbody rb;
 	public float walkSpeed;
     public float grabRange;
-    public GameObject heldItem;
-    public int grabCooldown;
+    GameObject heldItem;
+    int grabCooldown;
 
     Animator anim;
 
