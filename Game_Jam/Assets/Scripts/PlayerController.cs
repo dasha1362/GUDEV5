@@ -8,19 +8,42 @@ public class PlayerController : MonoBehaviour
 	Rigidbody rb;
 	public float walkSpeed;
     public float grabRange;
-    public GameObject heldItem;
-    public int grabCooldown;
+    GameObject heldItem;
+    int grabCooldown;
+
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector3(Input.GetAxis("Horizontal") * walkSpeed, 0f, Input.GetAxis("Vertical") * walkSpeed);
+        float horInp = Input.GetAxis("Horizontal");
+        float verInp = Input.GetAxis("Vertical");
+        rb.velocity = new Vector3(horInp * walkSpeed, 0f, verInp * walkSpeed);
+        anim.SetFloat("hSpeed", Mathf.Abs(rb.velocity.x));
+        anim.SetFloat("vSpeed", Mathf.Abs(rb.velocity.z));
+        if (verInp > 0)
+        {
+            anim.SetInteger("direction", 0);
+        }
+        else if (verInp < 0)
+        {
+            anim.SetInteger("direction", 2);
+        }
+        else if (horInp > 0)
+        {
+            anim.SetInteger("direction", 1);
+        }
+        else if (horInp < 0)
+        {
+            anim.SetInteger("direction", 3);
+        }
         GameObject[] ingredients = GameObject.FindGameObjectsWithTag("Ingredient");
         GameObject closestIngred = UtilFunctions.FindClosestObject(transform.position, ingredients);
         if (heldItem == null && Vector3.Distance(transform.position, closestIngred.transform.position) <= grabRange && Input.GetAxis("Grab") > 0 && grabCooldown == 0)
