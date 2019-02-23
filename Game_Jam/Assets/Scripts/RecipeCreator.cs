@@ -21,6 +21,8 @@ public class RecipeCreator : MonoBehaviour
 	public Ingredient p2Fruit;
 	public List<Ingredient> p1Recipe;
 	public List<Ingredient> p2Recipe;
+    int p1Progress;
+    int p2Progress;
 	public int recipeLength;
 
     // Start is called before the first frame update
@@ -49,6 +51,30 @@ public class RecipeCreator : MonoBehaviour
     	System.Random rnd = new System.Random();
     	p1Recipe = p1Recipe.OrderBy(item => rnd.Next()).ToList();
     	p2Recipe = p2Recipe.OrderBy(item => rnd.Next()).ToList();
+        p1Progress = 0;
+        p2Progress = 0;
+    }
+
+    public void IngredientGathered(Ingredient ingred, int playerNum)
+    {
+        if (playerNum == 1 && ingred == p1Recipe[p1Progress])
+        {
+            p1Progress++;
+        }
+        else if (playerNum == 2 && ingred == p2Recipe[p2Progress])
+        {
+            p2Progress++;
+        }
+        if (p1Progress == recipeLength)
+        {
+            // TODO PLAYER 1 WINS
+            print("Player 1 wins");
+        }
+        else if (p2Progress == recipeLength)
+        {
+            // TODO PLAYER 2 WINS
+            print("Player 2 wins");
+        }
     }
 
     // Update is called once per frame
