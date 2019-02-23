@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1329890480274157144}
   - component: {fileID: 1329890480274157145}
   m_Layer: 0
-  m_Name: FruitSpwaner
+  m_Name: FruitSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
