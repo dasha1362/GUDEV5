@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4572961362875140628}
   - component: {fileID: 4572961362875140627}
   - component: {fileID: 6523757218375092992}
+  - component: {fileID: 2355169706413768688}
   m_Layer: 0
   m_Name: sugar
   m_TagString: Untagged
@@ -69,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b0a30f9d3346fcc498fa006050a6f572, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 69075d8e66323e943b4da2ea5284cc99, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,3 +97,22 @@ MonoBehaviour:
   isGrabbed: 0
   isReleased: 0
   buffType: 0
+--- !u!95 &2355169706413768688
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4572961362875140626}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: efebdca471a7b7d44a332f5370c9f87e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
