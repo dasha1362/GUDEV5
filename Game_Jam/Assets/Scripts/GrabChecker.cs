@@ -8,7 +8,8 @@ public class GrabChecker : MonoBehaviour
 	public GameObject holdingPlayer;
 	public bool isGrabbed;
 	public bool isReleased;
-
+	public Buff buffType;
+	
     // Start is called before the first frame update
     void Start()
     {

@@ -1,6 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
+public enum Buff {
+    None,
+    Speed,
+    Health
+}
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +17,7 @@ public class PlayerController : MonoBehaviour
 	Rigidbody rb;
 	public float walkSpeed;
     public float grabRange;
+    public Text speedText;
     GameObject heldItem;
     int grabCooldown;
 
@@ -19,8 +28,31 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+
+        if (speedText != null) speedText.text = $"Speed: {walkSpeed}";
     }
 
+    void ApplyBuff(Buff buff)
+    {
+        if (buff == Buff.Speed)
+        {
+            walkSpeed += 5;
+            if (speedText != null) speedText.text = $"Speed: {walkSpeed}";
+        }
+        StartCoroutine(RemoveBuff(buff, 20));
+    }
+
+    IEnumerator RemoveBuff(Buff buff, int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (buff == Buff.Speed)
+        {
+            walkSpeed -= 5;
+            if (speedText != null) speedText.text = $"Speed: {walkSpeed}";
+        }
+    }
+    
+    
     // Update is called once per frame
     void Update()
     {
@@ -58,28 +90,43 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetInteger("direction", 3);
         }
-        GameObject[] ingredients = GameObject.FindGameObjectsWithTag("Ingredient");
-        GameObject closestIngred = UtilFunctions.FindClosestObject(transform.position, ingredients);
-        if (heldItem == null && Vector3.Distance(transform.position, closestIngred.transform.position) <= grabRange && grab > 0 && grabCooldown == 0)
+
+        if (grab > 0)
         {
-            if (closestIngred.GetComponent<GrabChecker>().holdingPlayer != null)
+            GameObject[] ingredients = GameObject.FindGameObjectsWithTag("Ingredient");
+            GameObject closestIngred = UtilFunctions.FindClosestObject(transform.position, ingredients);
+            if (heldItem == null && Vector3.Distance(transform.position, closestIngred.transform.position) <= grabRange && grabCooldown == 0)
             {
-                closestIngred.GetComponent<GrabChecker>().holdingPlayer.GetComponent<PlayerController>().heldItem = null;
-                closestIngred.GetComponent<GrabChecker>().holdingPlayer.GetComponent<PlayerController>().anim.SetBool("holding", false);
+                var grabChecker = closestIngred.GetComponent<GrabChecker>();
+                if (grabChecker.holdingPlayer != null)
+                {
+                    grabChecker.holdingPlayer.GetComponent<PlayerController>().heldItem = null;
+                    grabChecker.holdingPlayer.GetComponent<PlayerController>().anim.SetBool("holding", false);
+                }
+                grabChecker.holdingPlayer = this.gameObject;
+                grabChecker.isGrabbed = true;
+                if (grabChecker.buffType != Buff.None)
+                {
+                    ApplyBuff(grabChecker.buffType);
+                    Destroy(closestIngred);
+                    
+                }
+                else
+                {
+                    heldItem = closestIngred;
+                    grabCooldown = 30;
+                    anim.SetBool("holding", true);
+                }
             }
-            closestIngred.GetComponent<GrabChecker>().holdingPlayer = this.gameObject;
-            closestIngred.GetComponent<GrabChecker>().isGrabbed = true;
-            heldItem = closestIngred;
-            grabCooldown = 30;
-            anim.SetBool("holding", true);
+            if (heldItem != null && grab > 0 && grabCooldown == 0)
+            {
+                heldItem.GetComponent<GrabChecker>().isReleased = true;
+                heldItem = null;
+                grabCooldown = 30;
+                anim.SetBool("holding", false);
+            }   
         }
-        if (heldItem != null && grab > 0 && grabCooldown == 0)
-        {
-            heldItem.GetComponent<GrabChecker>().isReleased = true;
-            heldItem = null;
-            grabCooldown = 30;
-            anim.SetBool("holding", false);
-        }
+        
 
         if (grabCooldown > 0)
         {
