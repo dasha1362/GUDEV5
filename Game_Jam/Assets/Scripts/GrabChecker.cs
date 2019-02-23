@@ -9,8 +9,9 @@ public class GrabChecker : MonoBehaviour
 	public bool isGrabbed;
 	public bool isReleased;
 	public Buff buffType;
-	
-    // Start is called before the first frame update
+	internal int LastPlayerNumber { get; set; }
+
+	// Start is called before the first frame update
     void Start()
     {
 
@@ -26,6 +27,7 @@ public class GrabChecker : MonoBehaviour
     	if (isReleased)
     	{
     		transform.position = new Vector3(holdingPlayer.transform.position.x, 0.3f, holdingPlayer.transform.position.z - 0.5f);
+            LastPlayerNumber = holdingPlayer.GetComponent<PlayerController>().playerNum;
     		holdingPlayer = null;
     		isGrabbed = false;
     		isReleased = false;
