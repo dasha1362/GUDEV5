@@ -1,17 +1,16 @@
 fileFormatVersion: 2
-guid: 84a9e37cc9a370ec0b03627e84dde223
+guid: f0a95b07ee119814ebe1b5b79eda2010
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: default
-    100002: //RootNode
-    400000: default
-    400002: //RootNode
-    2100000: tileset
+    100000: //RootNode
+    100002: default
+    400000: //RootNode
+    400002: default
+    2100000: palette
     2300000: default
     3300000: default
     4300000: default
-    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -65,7 +64,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -92,7 +91,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
