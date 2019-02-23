@@ -52,12 +52,14 @@ public class PlayerController : MonoBehaviour
             closestIngred.GetComponent<GrabChecker>().isGrabbed = true;
             heldItem = closestIngred;
             grabCooldown = 30;
+            anim.SetBool("holding", true);
         }
         if (heldItem != null && Input.GetAxis("Grab") > 0 && grabCooldown == 0)
         {
             heldItem.GetComponent<GrabChecker>().isReleased = true;
             heldItem = null;
             grabCooldown = 30;
+            anim.SetBool("holding", false);
         }
 
         if (grabCooldown > 0)
