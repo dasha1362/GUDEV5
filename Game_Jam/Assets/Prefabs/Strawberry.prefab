@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5340813553075237031}
   - component: {fileID: 5340813553075237030}
   - component: {fileID: 5340813553075237024}
+  - component: {fileID: 5540228400264989899}
   m_Layer: 0
   m_Name: Strawberry
   m_TagString: Ingredient
@@ -95,3 +96,23 @@ MonoBehaviour:
   holdingPlayer: {fileID: 0}
   isGrabbed: 0
   isReleased: 0
+  buffType: 0
+--- !u!95 &5540228400264989899
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5340813553075237029}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1e8d42d834f396fec991c62f4d689fa7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

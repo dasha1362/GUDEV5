@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7550217606751473412}
   - component: {fileID: 7550217606751473413}
   - component: {fileID: 7550217606751473411}
+  - component: {fileID: 6947743058289169675}
   m_Layer: 0
   m_Name: Blackberries
   m_TagString: Ingredient
@@ -95,3 +96,23 @@ MonoBehaviour:
   holdingPlayer: {fileID: 0}
   isGrabbed: 0
   isReleased: 0
+  buffType: 0
+--- !u!95 &6947743058289169675
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7550217606751473414}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bd9eeca4b56718d9689e3b2d131b45a5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
