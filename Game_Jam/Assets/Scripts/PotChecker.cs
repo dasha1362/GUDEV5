@@ -20,7 +20,7 @@ public class PotChecker : MonoBehaviour
     void CheckSurroundingItems()
     {
         var items = GameObject.FindGameObjectsWithTag("Ingredient")
-            .Where(t => Vector3.Distance(t.transform.position ,transform.position) < 5 && t.GetComponent<GrabChecker>().LastPlayerNumber == playerNum && t.GetComponent<GrabChecker>().holdingPlayer == null).ToArray();
+            .Where(t => Vector3.Distance(t.transform.position ,transform.position) < 2.5 && t.GetComponent<GrabChecker>().LastPlayerNumber == playerNum && t.GetComponent<GrabChecker>().holdingPlayer == null).ToArray();
         foreach (var item in items)
         {
             string ingredName = item.name.Substring(0, item.name.Length - 7);

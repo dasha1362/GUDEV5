@@ -23,7 +23,7 @@ public class SpawnFruit : MonoBehaviour
     void SpawnPrefab()
     {
         var chosenSpawnerPosition = spawners[Random.Range(0,spawners.Length)].transform.position;
-        Instantiate(prefab, new Vector3(chosenSpawnerPosition.x + Random.Range(-5.0f, 5.0f), 0.3f, chosenSpawnerPosition.z + Random.Range(-5.0f, 5.0f)), Quaternion.identity);
+        Instantiate(prefab, new Vector3(chosenSpawnerPosition.x + Random.Range(-2.5f, 2.5f), 0.3f, chosenSpawnerPosition.z + Random.Range(-2.5f, 2.5f)), Quaternion.identity);
     }
     
     // Update is called once per frame
