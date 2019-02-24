@@ -48,3 +48,11 @@ MonoBehaviour:
   p1Recipe: 
   p2Recipe: 
   recipeLength: 10
+  strawberryJam: {fileID: 601694055411675433, guid: 4f5bbf0207798d4c38fa50c93ea0b9a8,
+    type: 3}
+  blueberryJam: {fileID: 235092634049039681, guid: 3ceffddcd186f8f17b3b00d1cdd713c7,
+    type: 3}
+  apricotJam: {fileID: 7327405840621843561, guid: ba864313e2848a6d6aac54060a403105,
+    type: 3}
+  blackberryJam: {fileID: 8032930897006031584, guid: 1e24a2df3cdaeef2a86c28105ecc9973,
+    type: 3}

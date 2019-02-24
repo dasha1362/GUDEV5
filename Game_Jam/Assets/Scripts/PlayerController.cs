@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 	public float walkSpeed;
     public float grabRange;
     public Text speedText;
-    GameObject heldItem;
+    public GameObject heldItem;
     int grabCooldown;
 
     public Animator anim;

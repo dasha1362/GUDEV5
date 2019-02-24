@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using UnityEngine;
+using TMPro;
 
 public enum Ingredient 
 {
@@ -17,13 +18,21 @@ public enum Ingredient
 public class RecipeCreator : MonoBehaviour
 {
 
-	public Ingredient p1Fruit;
-	public Ingredient p2Fruit;
-	public List<Ingredient> p1Recipe;
-	public List<Ingredient> p2Recipe;
+    public Ingredient p1Fruit;
+    public Ingredient p2Fruit;
+    public List<Ingredient> p1Recipe;
+    public List<Ingredient> p2Recipe;
     int p1Progress;
     int p2Progress;
-	public int recipeLength;
+    public int recipeLength;
+    TextMeshProUGUI winText;
+    GameObject player1;
+    GameObject player2;
+    public GameObject strawberryJam;
+    public GameObject blueberryJam;
+    public GameObject apricotJam;
+    public GameObject blackberryJam;
+    bool gameWon;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +62,19 @@ public class RecipeCreator : MonoBehaviour
     	p2Recipe = p2Recipe.OrderBy(item => rnd.Next()).ToList();
         p1Progress = 0;
         p2Progress = 0;
+        winText = GameObject.FindWithTag("Finish").GetComponent<TextMeshProUGUI>();
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject p in players)
+        {
+            if (p.GetComponent<PlayerController>().playerNum == 1)
+            {
+                player1 = p;
+            }
+            else if (p.GetComponent<PlayerController>().playerNum == 2)
+            {
+                player2 = p;
+            }
+        }
     }
 
     public void IngredientGathered(Ingredient ingred, int playerNum)
@@ -65,15 +87,90 @@ public class RecipeCreator : MonoBehaviour
         {
             p2Progress++;
         }
-        if (p1Progress == recipeLength)
+
+        if (p1Progress == recipeLength && !gameWon)
         {
-            // TODO PLAYER 1 WINS
-            print("Player 1 wins");
+            winText.text = "P1 Wins!!";
+            gameWon = true;
+            GameObject p1Jam;
+            if (p1Fruit == Ingredient.Strawberry) 
+            { 
+                p1Jam = Instantiate(strawberryJam);
+                var grabChecker = p1Jam.GetComponent<GrabChecker>();
+                grabChecker.holdingPlayer = player1;
+                grabChecker.isGrabbed = true;
+                player1.GetComponent<PlayerController>().heldItem = p1Jam;
+                player1.GetComponent<Animator>().SetBool("holding", true);
+            }
+            else if (p1Fruit == Ingredient.Blueberries) 
+            {
+                p1Jam = Instantiate(blueberryJam);
+                var grabChecker = p1Jam.GetComponent<GrabChecker>();
+                grabChecker.holdingPlayer = player1;
+                grabChecker.isGrabbed = true;
+                player1.GetComponent<PlayerController>().heldItem = p1Jam;
+                player1.GetComponent<Animator>().SetBool("holding", true);
+            }
+            else if (p1Fruit == Ingredient.Apricot)
+            {
+                p1Jam = Instantiate(apricotJam);
+                var grabChecker = p1Jam.GetComponent<GrabChecker>();
+                grabChecker.holdingPlayer = player1;
+                grabChecker.isGrabbed = true;
+                player1.GetComponent<PlayerController>().heldItem = p1Jam;
+                player1.GetComponent<Animator>().SetBool("holding", true);
+            }
+            else if (p1Fruit == Ingredient.Blackberries)
+            {
+                p1Jam = Instantiate(blackberryJam);
+                var grabChecker = p1Jam.GetComponent<GrabChecker>();
+                grabChecker.holdingPlayer = player1;
+                grabChecker.isGrabbed = true;
+                player1.GetComponent<PlayerController>().heldItem = p1Jam;
+                player1.GetComponent<Animator>().SetBool("holding", true);
+            }
         }
-        else if (p2Progress == recipeLength)
+        if (p2Progress == recipeLength && !gameWon)
         {
-            // TODO PLAYER 2 WINS
-            print("Player 2 wins");
+            winText.text = "P2 Wins!!";
+            gameWon = true;
+            GameObject p2Jam;
+            if (p2Fruit == Ingredient.Strawberry) 
+            { 
+                p2Jam = Instantiate(strawberryJam);
+                var grabChecker = p2Jam.GetComponent<GrabChecker>();
+                grabChecker.holdingPlayer = player2;
+                grabChecker.isGrabbed = true;
+                player2.GetComponent<PlayerController>().heldItem = p2Jam;
+                player2.GetComponent<Animator>().SetBool("holding", true);
+            }
+            else if (p2Fruit == Ingredient.Blueberries) 
+            {
+                p2Jam = Instantiate(blueberryJam);
+                var grabChecker = p2Jam.GetComponent<GrabChecker>();
+                grabChecker.holdingPlayer = player2;
+                grabChecker.isGrabbed = true;
+                player2.GetComponent<PlayerController>().heldItem = p2Jam;
+                player2.GetComponent<Animator>().SetBool("holding", true);
+            }
+            else if (p2Fruit == Ingredient.Apricot)
+            {
+                p2Jam = Instantiate(apricotJam);
+                var grabChecker = p2Jam.GetComponent<GrabChecker>();
+                grabChecker.holdingPlayer = player2;
+                grabChecker.isGrabbed = true;
+                player2.GetComponent<PlayerController>().heldItem = p2Jam;
+                player2.GetComponent<Animator>().SetBool("holding", true);
+            }
+            else if (p2Fruit == Ingredient.Blackberries)
+            {
+                p2Jam = Instantiate(blackberryJam);
+                var grabChecker = p2Jam.GetComponent<GrabChecker>();
+                grabChecker.holdingPlayer = player2;
+                grabChecker.isGrabbed = true;
+                player2.GetComponent<PlayerController>().heldItem = p2Jam;
+                player2.GetComponent<Animator>().SetBool("holding", true);
+            }
         }
     }
 
