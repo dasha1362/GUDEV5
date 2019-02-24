@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
-public enum Ingredient 
+public enum Ingredient
 {
-	Strawberry, 
-	Blueberries, 
-	Apricot, 
-	Blackberries, 
-	Sugar, 
+	Strawberry,
+	Blueberries,
+	Apricot,
+	Blackberries,
+	Sugar,
 	Water
 }
 
@@ -24,12 +25,24 @@ public class RecipeCreator : MonoBehaviour
     int p1Progress;
     int p2Progress;
 	public int recipeLength;
+	public Image p1NextIngredient;
+	public Image p1NextNextIngredient;
+	public Image p2NextIngredient;
+	public Image p2NextNextIngredient;
+	public Sprite strawberrySprite;
+	public Sprite blueberrySprite;
+	public Sprite blackberrySprite;
+	public Sprite apricotSprite;
+	public Sprite sugarSprite;
+	public Sprite waterSprite;
+
 
     // Start is called before the first frame update
     void Start()
     {
     	p1Fruit = (Ingredient)UnityEngine.Random.Range(0, 3);
     	p2Fruit = (Ingredient)UnityEngine.Random.Range(0, 3);
+
     	while (p2Fruit == p1Fruit)
     	{
     		p2Fruit = (Ingredient)UnityEngine.Random.Range(0, 3);
@@ -53,6 +66,12 @@ public class RecipeCreator : MonoBehaviour
     	p2Recipe = p2Recipe.OrderBy(item => rnd.Next()).ToList();
         p1Progress = 0;
         p2Progress = 0;
+
+
+		setNextIngedient(p1Recipe[p1Progress], 1);
+		setNextIngedient(p2Recipe[p2Progress], 2);
+		setNextNextIngedient(p1Recipe[p1Progress+1], 1);
+		setNextNextIngedient(p2Recipe[p2Progress+1], 2);
     }
 
     public void IngredientGathered(Ingredient ingred, int playerNum)
@@ -60,10 +79,26 @@ public class RecipeCreator : MonoBehaviour
         if (playerNum == 1 && ingred == p1Recipe[p1Progress])
         {
             p1Progress++;
+
+			setNextIngedient(p1Recipe[p1Progress], playerNum);
+
+
+
+			if (p1Progress+1 <= recipeLength){
+				setNextNextIngedient(p1Recipe[p1Progress+1], playerNum);
+			}
+
+
         }
         else if (playerNum == 2 && ingred == p2Recipe[p2Progress])
         {
             p2Progress++;
+
+			setNextIngedient(p2Recipe[p2Progress], playerNum);
+
+			if (p1Progress+1 <= recipeLength){
+				setNextNextIngedient(p2Recipe[p2Progress+1], playerNum);
+			}
         }
         if (p1Progress == recipeLength)
         {
@@ -77,9 +112,108 @@ public class RecipeCreator : MonoBehaviour
         }
     }
 
+	void setNextIngedient(Ingredient ingred, int playerNum){
+		if (playerNum == 1) {
+			switch (ingred){
+				case Ingredient.Strawberry:
+					Debug.Log(playerNum);
+					Debug.Log("Strawberry");
+					p1NextIngredient.sprite = strawberrySprite;
+					break;
+				case Ingredient.Blueberries:
+					Debug.Log("Strawberry");
+					p1NextIngredient.sprite = blueberrySprite;
+					break;
+				case Ingredient.Apricot:
+					Debug.Log("Strawberry");
+					p1NextIngredient.sprite = apricotSprite;
+					break;
+				case Ingredient.Blackberries:
+					Debug.Log("Strawberry");
+					p1NextIngredient.sprite = blackberrySprite;
+					break;
+				case Ingredient.Sugar:
+					Debug.Log("Strawberry");
+					p1NextIngredient.sprite = sugarSprite;
+					break;
+				case Ingredient.Water:
+					Debug.Log("Strawberry");
+					p1NextIngredient.sprite = waterSprite;
+					break;
+			}
+		} else {
+			switch (ingred){
+				case Ingredient.Strawberry:
+					p2NextIngredient.sprite = strawberrySprite;
+					break;
+				case Ingredient.Blueberries:
+					p2NextIngredient.sprite = blueberrySprite;
+					break;
+				case Ingredient.Apricot:
+					p2NextIngredient.sprite = apricotSprite;
+					break;
+				case Ingredient.Blackberries:
+					p2NextIngredient.sprite = blackberrySprite;
+					break;
+				case Ingredient.Sugar:
+					p2NextIngredient.sprite = sugarSprite;
+					break;
+				case Ingredient.Water:
+					p2NextIngredient.sprite = waterSprite;
+					break;
+			}
+		}
+	}
+
+
+	void setNextNextIngedient(Ingredient ingred, int playerNum){
+		if (playerNum == 1) {
+			switch (ingred){
+				case Ingredient.Strawberry:
+					p1NextNextIngredient.sprite = strawberrySprite;
+					break;
+				case Ingredient.Blueberries:
+					p1NextNextIngredient.sprite = blueberrySprite;
+					break;
+				case Ingredient.Apricot:
+					p1NextNextIngredient.sprite = apricotSprite;
+					break;
+				case Ingredient.Blackberries:
+					p1NextNextIngredient.sprite = blackberrySprite;
+					break;
+				case Ingredient.Sugar:
+					p1NextNextIngredient.sprite = sugarSprite;
+					break;
+				case Ingredient.Water:
+					p1NextNextIngredient.sprite = waterSprite;
+					break;
+			}
+		} else {
+			switch (ingred){
+				case Ingredient.Strawberry:
+					p2NextNextIngredient.sprite = strawberrySprite;
+					break;
+				case Ingredient.Blueberries:
+					p2NextNextIngredient.sprite = blueberrySprite;
+					break;
+				case Ingredient.Apricot:
+					p2NextNextIngredient.sprite = apricotSprite;
+					break;
+				case Ingredient.Blackberries:
+					p2NextNextIngredient.sprite = blackberrySprite;
+					break;
+				case Ingredient.Sugar:
+					p2NextNextIngredient.sprite = sugarSprite;
+					break;
+				case Ingredient.Water:
+					p2NextNextIngredient.sprite = waterSprite;
+					break;
+			}
+		}
+	}
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

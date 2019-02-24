@@ -10,6 +10,7 @@ public class PotChecker : MonoBehaviour
     public int playerNum;
     GameObject Recipes;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +37,6 @@ public class PotChecker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
