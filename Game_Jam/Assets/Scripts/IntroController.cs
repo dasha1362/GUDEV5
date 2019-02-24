@@ -32,7 +32,6 @@ public class IntroController : MonoBehaviour
         PersistingData.Jam2 = p2Fruit;
         loadFruit();
         runScene();
-        SceneManager.LoadScene(1);
     }
 
     // Update is called once per frame
@@ -55,39 +54,54 @@ public class IntroController : MonoBehaviour
             new Vector3((float)9.962, (float)1.544, (float)(-3.207)), Quaternion.identity) as GameObject;
     }
 
-    private void runScene()
+    void doSpeech1()
     {
         speech1.SetActive(true);
-        speech1.GetComponentInChildren<TextMeshPro>().text = "It's a beautiful day!";
-        DateTime ts = DateTime.Now.AddSeconds(2);
-        do { } while (DateTime.Now < ts);
-        speech1.GetComponentInChildren<TextMeshPro>().text = "Let's make " + p1Fruit.ToString() + " jam!";
-        ts = DateTime.Now.AddSeconds(3);
-        do { } while (DateTime.Now < ts);
+        speech1.GetComponentInChildren<TextMeshProUGUI>().text = "It's a beautiful day!";
+    }
+
+    void doSpeech2()
+    {
+        speech1.GetComponentInChildren<TextMeshProUGUI>().text = "Let's make\n " + p1Fruit.ToString() + " jam!";
+    }
+
+    void doSpeech3()
+    {
         speech1.SetActive(false);
         speech2.SetActive(true);
-        speech2.GetComponentInChildren<TextMeshPro>().text = "But I want to make " + p2Fruit.ToString() + " jam!";
-        ts = DateTime.Now.AddSeconds(3);
-        do { } while (DateTime.Now < ts);
+        speech2.GetComponentInChildren<TextMeshProUGUI>().text = "But I want\nto make\n" + p2Fruit.ToString() + " jam!";
+    }
+
+    void switchSprites()
+    {
         speech2.SetActive(false);
         player1.SetActive(false);
         player2.SetActive(false);
         angry1.SetActive(true);
         angry2.SetActive(true);
-        ts = DateTime.Now.AddSeconds(1);
-        do { } while (DateTime.Now < ts);
+    }
+
+    void increaseSize()
+    {
         angry1.transform.localScale += new Vector3(1, 1, 0);
         angry2.transform.localScale += new Vector3(1, 1, 0);
-        ts = DateTime.Now.AddSeconds(1);
-        do { } while (DateTime.Now < ts);
-        angry1.transform.localScale += new Vector3(1, 1, 0);
-        angry2.transform.localScale += new Vector3(1, 1, 0);
-        ts = DateTime.Now.AddSeconds(1);
-        do { } while (DateTime.Now < ts);
-        angry1.transform.localScale += new Vector3(1, 1, 0);
-        angry2.transform.localScale += new Vector3(1, 1, 0);
-        ts = DateTime.Now.AddSeconds(1);
-        do { } while (DateTime.Now < ts);
+    }
+
+    void loadMainGame()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    private void runScene()
+    {
+        doSpeech1();
+        Invoke(nameof(doSpeech2), 2);
+        Invoke(nameof(doSpeech3), 5);
+        Invoke(nameof(switchSprites), 7);
+        Invoke(nameof(increaseSize), 8);
+        Invoke(nameof(increaseSize), 9);
+        Invoke(nameof(increaseSize), 10);
+        Invoke(nameof(loadMainGame), 11);
     }
 
 }
