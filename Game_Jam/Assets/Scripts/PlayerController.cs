@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
             walkSpeed += 5;
             if (speedText != null) speedText.text = $"Speed: {walkSpeed}";
         }
-        StartCoroutine(RemoveBuff(buff, 20));
+        StartCoroutine(RemoveBuff(buff, 5));
     }
 
     IEnumerator RemoveBuff(Buff buff, int delay)
@@ -49,8 +49,8 @@ public class PlayerController : MonoBehaviour
             if (speedText != null) speedText.text = $"Speed: {walkSpeed}";
         }
     }
-    
-    
+
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
                 {
                     ApplyBuff(grabChecker.buffType);
                     Destroy(closestIngred);
-                    
+
                 }
                 else
                 {
@@ -122,9 +122,9 @@ public class PlayerController : MonoBehaviour
                 heldItem = null;
                 grabCooldown = 30;
                 anim.SetBool("holding", false);
-            }   
+            }
         }
-        
+
 
         if (grabCooldown > 0)
         {
