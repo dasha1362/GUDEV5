@@ -10,11 +10,11 @@ public class SpawnFruit : MonoBehaviour
     public GameObject[] spawners;
     void Start()
     {
-        print(spawners);
+        // print(spawners);
         if (spawners == null || spawners.Length == 0)
         {
             spawners = GameObject.FindGameObjectsWithTag("Spawn");
-            print(spawners.Length);
+            // print(spawners.Length);
         }
 
         InvokeRepeating(nameof(SpawnPrefab), 5, 5);
@@ -25,10 +25,10 @@ public class SpawnFruit : MonoBehaviour
         var chosenSpawnerPosition = spawners[Random.Range(0,spawners.Length)].transform.position;
         Instantiate(prefab, new Vector3(chosenSpawnerPosition.x + Random.Range(-2.5f, 2.5f), 0.3f, chosenSpawnerPosition.z + Random.Range(-2.5f, 2.5f)), Quaternion.identity);
     }
-    
+
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
